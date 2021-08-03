@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Tutoriais seguidos
+https://www.electronjs.org/docs/tutorial/quick-start
+https://www.youtube.com/watch?v=57hOSdMC700&ab_channel=Intertech
+https://www.intertech.com/electron-tutorial-getting-started-with-electron-and-angular-cli/
+
+## Após o clone, instalar as dependências e pacotes
+npm install
+
+## Buildando aplicação
+npm run build
+
+## Rodando aplicação
+npm run forge-start
+
+## Gerando aplicativo para desktop, pode demorar até 10 minutos para terminar o processo.
+npm run make
+
