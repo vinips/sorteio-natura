@@ -2,17 +2,52 @@
   "name": "sorteio-natura",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "main.js",
+  "main": "src/electronMain.js",
+  "author": "Vinícius Silveira",
+  "description": "App criado para Sorteios de campanhas da Natura",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "electron": "electron .",
-    "electron-build": "ng build --prod && electron ."
+    "forge-start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "private": true,
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "npm"
+      },
+      "electronWinstallerConfig": {
+        "name": "ng-example"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "ngExample"
+      }
+    }
+  },
   "dependencies": {
     "@angular/animations": "~12.1.2",
     "@angular/common": "~12.1.2",
@@ -23,6 +58,8 @@
     "@angular/platform-browser-dynamic": "~12.1.2",
     "@angular/router": "~12.1.2",
     "rxjs": "~6.6.0",
+    "electron-compile": "^6.4.2",
+    "electron-squirrel-startup": "^1.0.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
@@ -33,7 +70,8 @@
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "electron": "^13.1.7",
-    "electron-packager": "^9.1.0",
+    "electron-forge": "^5.2.0",
+    "electron-prebuilt-compile": "2.0.0",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
