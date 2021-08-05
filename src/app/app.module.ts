@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { UploadImagesModule } from './upload-images/upload-images.module';
+import { SharedModule } from "src/app/shared/shared.module";
+import { UploadFilesModule } from './upload-files/upload-files.module';
 
 import { AppComponent } from './app.component';
-
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    UploadImagesModule,
+    UploadFilesModule,
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

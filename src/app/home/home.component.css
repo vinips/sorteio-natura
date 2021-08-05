@@ -1,0 +1,11 @@
+.sub-title{
+  text-align: center;
+}
+
+.breadcrumb{
+  flex-direction: column;
+}
+
+.button {
+  align: center;
+}
