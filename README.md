@@ -10,8 +10,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - https://www.intertech.com/electron-tutorial-getting-started-with-electron-and-angular-cli/
 
-###### Upload Images
+###### Upload Images e XLSX
 - https://www.bezkoder.com/angular-material-12-image-upload-preview/
+
+- https://www.youtube.com/watch?v=hx--lBzPqAc&ab_channel=SamLama
 
 ## Após o clone, instalar as dependências e pacotes
 npm install

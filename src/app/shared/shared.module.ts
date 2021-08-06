@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatListModule } from '@angular/material/list';
 
+import { FormsModule }   from '@angular/forms';
+
 
 @NgModule({
   declarations: [],
@@ -22,7 +24,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   exports: [
     NoopAnimationsModule,
@@ -32,7 +35,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

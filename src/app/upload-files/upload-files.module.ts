@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UploadFilesComponent } from './upload-files.component';
 import { SharedModule } from "src/app/shared/shared.module";
-
 import { UploadFilesRoutingModule } from "./upload-files-routing.module";
 
+import { UploadFilesComponent } from './upload-files.component';
+
+import { UploadFilesDirective } from './upload-files.directive';
 
 @NgModule({
   declarations: [
-    UploadFilesComponent
+    UploadFilesComponent,
+    UploadFilesDirective
   ],
   imports: [
     CommonModule,
