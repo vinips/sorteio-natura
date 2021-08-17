@@ -33,7 +33,7 @@
   </mat-form-field>
 
   <div>
-    <img *ngFor='let preview of previews' [src]="preview" class="preview">
+    <img *ngFor='let preview of previews' [src]="preview" class="preview" > uhul
   </div>
 
   <div *ngIf="message.length" class="message">
@@ -50,7 +50,7 @@
     </div>
 
     <div class="col-md-6" align="end">
-      <button mat-flat-button color="primary" routerLink="">
+      <button mat-flat-button color="primary" [disabled]="(this.uploadFilesService.prizes.length == 0 || this.uploadFilesService.participants.length == 0)" routerLink="/winner">
         Sortear
       </button>
     </div>

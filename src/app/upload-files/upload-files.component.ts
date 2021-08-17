@@ -27,7 +27,7 @@ export class UploadFilesComponent implements OnInit{
   ){ }
 
   ngOnInit() {
-
+    this.uploadFilesService.prizes.length = 0
   }
 
   selectFiles(event: any): void {

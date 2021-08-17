@@ -1,4 +1,4 @@
-
+import { OnInit } from '@angular/core';
 import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { UploadFilesService } from './upload-files.service';
@@ -8,7 +8,7 @@ import * as XLSX from 'xlsx';
   selector: '[appUploadFiles]',
   exportAs: 'readExcel',
 })
-export class UploadFilesDirective {
+export class UploadFilesDirective implements OnInit {
 
   excelObservable?: Observable<any>;
   @Output() eventEmitter = new EventEmitter();
@@ -21,6 +21,10 @@ export class UploadFilesDirective {
   constructor(
     public uploadFilesService: UploadFilesService
   ){ }
+
+  ngOnInit() {
+    this.uploadFilesService.participants.length = 0
+  }
 
   @HostListener('change', ['$event.target'])
   onChange(target: HTMLInputElement) {
@@ -37,6 +41,7 @@ export class UploadFilesDirective {
 
    if (!this.error){
      this.excelObservable = new Observable((subscriber: Subscriber<any>) => {
+       this.uploadFilesService.participants.length = 0
        this.readFile(file, subscriber);
      });
 
@@ -56,6 +61,7 @@ export class UploadFilesDirective {
          this.message = "Primeiro registro precisa ser a palavra 'nome'";
        } else {
          this.message = "Arquivo enviado com sucesso: " + this.fileName;
+         console.log(this.uploadFilesService.participants)
        }
        //Remove o valor para poder mandar o mesmo arquivo novamente com o evento "change"
        target.value = "";
