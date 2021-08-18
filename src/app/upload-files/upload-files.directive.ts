@@ -61,7 +61,6 @@ export class UploadFilesDirective implements OnInit {
          this.message = "Primeiro registro precisa ser a palavra 'nome'";
        } else {
          this.message = "Arquivo enviado com sucesso: " + this.fileName;
-         console.log(this.uploadFilesService.participants)
        }
        //Remove o valor para poder mandar o mesmo arquivo novamente com o evento "change"
        target.value = "";

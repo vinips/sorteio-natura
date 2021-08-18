@@ -5,3 +5,24 @@
 .breadcrumb{
   flex-direction: column;
 }
+
+.list-card {
+  margin-top: 20px;
+}
+
+.list-item {
+  margin-bottom: 20px;
+}
+
+.mat-card {
+  background-color: transparent;
+}
+
+.preview {
+  max-width: 80%;
+  vertical-align: middle;
+}
+
+.h2 {
+  text-align: center;
+}

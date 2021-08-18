@@ -22,7 +22,7 @@ ng add @angular/material
 ## Buildando aplicação
 npm run build
 
-## Rodando aplicação
+## Rodando aplicação com o Electron
 npm run forge-start
 
 ## Gerando aplicativo para desktop, pode demorar até 10 minutos para terminar o processo.

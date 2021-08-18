@@ -2,21 +2,30 @@
   <h3 class="sub-title">O Número de sorteados não bate com o número de prêmios.</h3>
 </ol>
 
+<div *ngIf="!error">
+  <ol class="breadcrumb mb-4">
+    <h3 class="sub-title"> Os Ganhadores são</h3>
+  </ol>
+  <div class="row">
+    <div class="col-md-12" *ngFor='let winner of winners' align="center">
+      <h2> {{ winner.name }}</h2>
+      <br>
+      <img [src]="winner.prize" class = "preview">
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
 
+<br>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <button mat-flat-button color="primary" routerLink="/upload-files">
       Voltar
     </button>
   </div>
 
-  <div class="col-md-4" align="midle">
-    <button mat-flat-button color="primary" (click)="raffle()">
-      De novo
-    </button>
-  </div>
-
-  <div class="col-md-4" align="end">
+  <div class="col-md-6" align="end">
     <button mat-flat-button color="primary" routerLink="">
       Início
     </button>

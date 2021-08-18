@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadFilesService } from 'src/app/upload-files/upload-files.service';
+import { Winner } from './winner.model';
 
 @Component({
   selector: 'app-winner',
@@ -8,7 +9,7 @@ import { UploadFilesService } from 'src/app/upload-files/upload-files.service';
 })
 export class WinnerComponent implements OnInit {
 
-  winners: string[] = []
+  winners: Winner[] = []
 
   error: boolean = false
 
@@ -27,34 +28,30 @@ export class WinnerComponent implements OnInit {
 
   raffle(){
     for (let i = 0; i < this.uploadFilesService.winnersQuantity; i++) {
+      let winner: Winner = new Winner(0, "", "")
+
       let min = Math.ceil(0);
       let max = Math.floor(this.uploadFilesService.participants.length);
       let randomNumber = Math.floor(Math.random() * (max - min )) + min
-      let name = this.uploadFilesService.participants[randomNumber]
 
-      this.winners.push(name)
+      winner.name = this.uploadFilesService.participants[randomNumber]
 
-      console.log("numberResult = " + randomNumber)
-      console.log("Name = " + name)
-      console.log("namesBefore = " + this.uploadFilesService.participants)
-      console.log("winners = " + this.winners)
+      winner.id = i + 1;
+      winner.prize = this.uploadFilesService.prizes[i]
+
+      this.winners.push(winner)
 
       let findName = true;
 
       //Retira da lista todos os nomes do sorteado para que ele não ganhe novamente.
       while (findName){
-        const index: number = this.uploadFilesService.participants.indexOf(name);
+        const index: number = this.uploadFilesService.participants.indexOf(winner.name);
         if (index !== -1) {
           this.uploadFilesService.participants.splice(index, 1);
         } else {
           findName = false
         }
       }
-
-      console.log("namesAfter = " + this.uploadFilesService.participants)
-
-      console.log("---------- ")
-
 
     }
 

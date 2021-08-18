@@ -10,8 +10,8 @@ function isDev (){
 
 function createWindow () {
   win = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1300,
+    height: 860
   })
 
   win.loadURL(url.format({

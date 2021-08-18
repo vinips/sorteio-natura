@@ -20,6 +20,7 @@ export class UploadFilesComponent implements OnInit{
   previews: string[] = [];
 
   jpg = ".jpg"
+  jpeg = ".jpeg"
   png = ".png"
 
   constructor(
@@ -35,6 +36,7 @@ export class UploadFilesComponent implements OnInit{
     this.selectedFileNames = [];
     this.selectedFiles = event.target.files;
     this.previews = [];
+    this.uploadFilesService.prizes.length = 0
 
 
     if (this.selectedFiles && this.selectedFiles[0]) {
@@ -42,14 +44,13 @@ export class UploadFilesComponent implements OnInit{
       for (let i = 0; i < numberOfFiles; i++) {
         const reader = new FileReader();
 
-        if(this.selectedFiles[i].name.search(this.jpg) == -1 && this.selectedFiles[i].name.search(this.png) == -1 ){
-          const msg = 'Arquivo não suportado. Favor usar .jpg ou .png: ' + this.selectedFiles[i].name;
+        if(this.selectedFiles[i].name.search(this.jpg) == -1 && this.selectedFiles[i].name.search(this.png) == -1 && this.selectedFiles[i].name.search(this.jpeg) == -1 ){
+          const msg = 'Arquivo não suportado. Favor usar .jpg, .jpeg ou .png: ' + this.selectedFiles[i].name;
           this.message.push(msg);
           continue
         }
 
         reader.onload = (e: any) => {
-          //console.log(e.target.result);
           this.previews.push(e.target.result);
           this.uploadFilesService.prizes.push(e.target.result);
         };
@@ -64,8 +65,6 @@ export class UploadFilesComponent implements OnInit{
 
     }
 
-    console.log(this.selectedFiles)
-    console.log(this.previews)
   }
 
 
